@@ -1,21 +1,34 @@
-import React from 'react';
-import './app.less'
-import {useDispatch, useSelector} from "react-redux";
-import {setCount,setFilmsThunkCreator} from "../reducers/reposReducer";
-const App = () => {
-    const dispatch = useDispatch()
-    const count = useSelector(state => state.repos.count)
+import React, { useState } from 'react';
+import HeaderContainer from './Header/HeaderContainer';
+import FilmsContainer from './Films/FilmsContainer';
+import DetailsContainer from './Details/DetailsContainer';
+import * as Style from './Style';
+import { GlobalStyle } from '../theme/theme';
+import { Route, Routes } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from '../theme/theme';
 
-    function onCountClick() {
-        dispatch(setCount(count + 5))
-        dispatch(setFilmsThunkCreator())
-    }
+const App = () => {
+    const [theme, setTheme] = useState("light");
+
+    const switchTheme = () => {
+        theme === "light" ? setTheme("dark") : setTheme("light");
+    };
 
     return (
-        <div className="app">
-            <button onClick={()=>onCountClick()}>COUNT</button>
-            <div>{count}</div>
-        </div>
+        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+            <GlobalStyle ></GlobalStyle>
+            <Style.App >
+                <Style.Content>
+                    <HeaderContainer switchTheme={switchTheme}></HeaderContainer>
+                    <Routes>
+                        <Route path='' element={ <FilmsContainer></FilmsContainer>}></Route>
+                        <Route path='/films/' element={ <FilmsContainer></FilmsContainer>}></Route>
+                        <Route path='/films/:filmId/' element={ <DetailsContainer></DetailsContainer>}></Route>
+                    </Routes>
+                </Style.Content>
+            </Style.App>
+        </ThemeProvider >
     );
 };
 

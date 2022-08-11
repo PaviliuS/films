@@ -7,7 +7,7 @@ export const Header = styled.header`
     align-items: center;
     justify-content: center;
     color: ${props => props.theme.textColor};
-    box-shadow: 0px 0px 15px ${props => props.theme.shadowColor};
+    box-shadow: 0px 0px 5px ${props => props.theme.accentColor1};
     background-color: ${props => props.theme.backgroundColor};
     top: 0;
     position: sticky;

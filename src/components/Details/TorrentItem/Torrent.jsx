@@ -1,12 +1,12 @@
 import React from 'react';
 import * as Style from './Style';
-import {VscDesktopDownload,VscSave,VscSymbolFile} from 'react-icons/vsc';
+import {VscVm,VscSave,VscSymbolFile} from 'react-icons/vsc';
 
 const Torrent = (props) => {
     return (
         <Style.Torrent href={props.href}>
             <Style.Content>
-                <Style.Icon><VscDesktopDownload/></Style.Icon>
+                <Style.Icon><VscVm/></Style.Icon>
                 <Style.Text>{props.quality}</Style.Text>
             </Style.Content>
             <Style.Content>

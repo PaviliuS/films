@@ -56,6 +56,7 @@ export const Time = styled.div`
 `;
 
 export const Button = styled.div`
+cursor: pointer;
     display: flex;
     flex: 0 0 auto;
     width: 30px;
@@ -63,6 +64,12 @@ export const Button = styled.div`
     justify-content: flex-end;
     font-size:  ${props => props.theme.textSizeTitle};;
     align-items: flex-end;
+    transition: 0.3s;
+    &:hover {
+        
+        color: ${props => props.theme.accentColor1};
+        transition: 0.3s;
+    }
 `;
 
 export const Text = styled.div`

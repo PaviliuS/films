@@ -40,9 +40,6 @@ let mapDispatchToProps = (dispatch) => {
         setTotalFilmsCount: (totalUsersCount) => {
             dispatch(setTotalFilmsCountActionCreator(totalUsersCount));
         },
-        setIsFetching: (isFetching) => {
-            dispatch(setIsFetchingActionCreator(isFetching));
-        },
     }
 };
 

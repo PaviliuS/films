@@ -193,17 +193,23 @@ export const Genres = styled.div`
     font-size: ${props=> props.theme.textSizeTextM};
     grid-template-columns: repeat(5,1fr);
     grid-gap:10px;
+    @media (max-width: 768px) and (min-width: 576px)  {
+        grid-template-columns: 1fr  ;
+    }
+    @media (max-width: 576px)  {
+        grid-template-columns: 1fr  ;
+    }
 `;
 
 export const Statistic = styled.div`
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-gap:20px;
     @media (max-width: 768px) and (min-width: 576px)  {
         grid-template-columns: 1fr 1fr  1fr 1fr;
     }
     @media (max-width: 576px)  {
-        grid-template-columns: 1fr 1fr 1fr 1fr ;
+        grid-template-columns: 1fr 1fr  ;
     }
 `;
 export const TorrentsTitle = styled.div`
@@ -213,8 +219,6 @@ export const TorrentsTitle = styled.div`
     font-weight: 600;
     font-size: ${props=> props.theme.textSizeTextL};
     color: ${props=> props.theme.textColor};
-
-
 `;
 
 export const Torrents = styled.div`

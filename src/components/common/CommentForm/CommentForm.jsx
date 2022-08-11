@@ -6,8 +6,8 @@ import * as yup from 'yup';
 
 const validationSchema = yup.object({
     comment: yup
-        .string('Enter your email')
-        .required('Поле не заполнено').max(10,'Максимальная длина'),
+        .string('Write your comment')
+        .required('Required').max(250,'Max length'),
 });
 
 const CommentForm = (props) => {

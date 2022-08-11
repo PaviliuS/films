@@ -9,14 +9,14 @@ import StatisticItem from './StatisticItem/StatisticItem';
 import Comments from './Comments/Comments';
 import Torrent from './TorrentItem/Torrent';
 import Genre from './GenreItem/GenreItem';
-  // <Style
+
 const Details = (props) => {
     if (props.isFetchingFilm) {
         return <Loader />
     }
     else {
-        let genresList = props.film.genres.map((value) => { return <Genre text={value} />});
-        let torrentsList = props.film.torrents.map(item => { return <Torrent href={item.url} quality={item.quality} type={item.type} size={item.size}/> });
+        let genresList = props.film.genres.map((value) => { return <Genre key={value} text={value} />});
+        let torrentsList = props.film.torrents.map((item, index) => { return <Torrent key={index} href={item.url} quality={item.quality} type={item.type} size={item.size}/> });
   
         return (
             <Style.Details>
@@ -30,7 +30,7 @@ const Details = (props) => {
                         <Style.Image>
                             <Style.Img src={props.film.large_cover_image}></Style.Img>
                             <Style.Buttons>
-                                <Style.DownloadButton href={props.film.url}>DownLoad</Style.DownloadButton>
+                                <Style.DownloadButton href={props.film.url}>Download</Style.DownloadButton>
                                 <Style.WatchButton href={props.film.url}>Watch Now</Style.WatchButton>
                             </Style.Buttons>
                         </Style.Image> 
@@ -59,9 +59,11 @@ const Details = (props) => {
                                 <StatisticItem icon={<BiTimeFive />} text= {props.film.runtime}></StatisticItem>
                                 <StatisticItem icon={<VscDesktopDownload />} text= {props.film.download_count}></StatisticItem>
                             </Style.Statistic>
+
                             <Style.TorrentsTitle>
                                 Downloads:
                             </Style.TorrentsTitle>
+
                             <Style.Torrents>
                                 {torrentsList}
                             </Style.Torrents>

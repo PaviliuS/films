@@ -6,7 +6,7 @@ import Comment from './Comment/Comment';
 
 
 const Comments = (props) => {
-    let commentsList = props.comments.map((value) => { if (value.filmId == props.filmId) return <Comment time ={value.time} deleteComment={props.deleteComment} name={value.userName} id={value.id} text={value.text}></Comment>; });
+    let commentsList = props.comments.map((value) => { if (value.filmId == props.filmId) return <Comment key={value.id} time ={value.time} deleteComment={props.deleteComment} name={value.userName} id={value.id} text={value.text}></Comment>; });
     return (
         <Style.Comments>
             <Style.Content>

@@ -4,7 +4,6 @@ import { VscSymbolColor } from "react-icons/vsc";
 import Button from './Button/Button';
 
 const Header = (props) => {
-
     return (
         <Style.Header id='header'>
             <Style.Content>

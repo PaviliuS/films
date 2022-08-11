@@ -3,8 +3,9 @@ import Pagination from '../common/Pagination/Pagination';
 import * as Style from './Style';
 import Film from './Film/Film';
 import Loader from '../common/Loader/Loader';
+
 const Films = (props) => {
-    let filmsList = props.films.movies.map(film => { return <Film film={film}></Film> })
+    let filmsList = props.films.movies.map(film => { return <Film key={film.id} film={film}></Film> })
 
     return (
         <Style.Films>
@@ -21,7 +22,6 @@ const Films = (props) => {
             </Style.Content> : <Loader />}
         </Style.Films>
     );
-
 }
 
 export default Films; 

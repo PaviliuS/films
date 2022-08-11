@@ -1,18 +1,5 @@
 import styled ,{keyframes} from 'styled-components';
 
-const changeColor = keyframes`
-    0%{
-     
-      background-color: ${props => props.theme.textColor};
-    }
-    50%{
-      background-color:  ${props => props.theme.accentColor1};
-    }
-    100%{
-      background-color: ${props => props.theme.textColor};
-    }    
-`;
-
 export const Loader = styled.div`
   display: flex; 
   width: 100%;
@@ -30,10 +17,9 @@ export const Icon = styled.div`
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  animation: ${changeColor} 3s ease infinite;
 `;
 
-export const Text = styled.div`
+export const Text = styled.span`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -41,7 +27,7 @@ export const Text = styled.div`
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  animation: ${changeColor} 3s ease infinite;
   font-weight: 600;
+  color:  ${props => props.theme.textColor};
 `;
 

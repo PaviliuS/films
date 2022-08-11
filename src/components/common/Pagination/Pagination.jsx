@@ -2,22 +2,8 @@ import React from 'react';
 import * as Style from './Style';
 import {VscArrowLeft,VscArrowRight} from "react-icons/vsc";
 import { useState, useEffect } from "react"
+import { useWindowSize } from '../../../hooks/hooks';
 
-export const useWindowSize = () => {
-    const [size, setSize] = useState([window.innerWidth, window.innerHeight])
-  
-    const handleResize = () => {
-      setSize([window.innerWidth, window.innerHeight])
-    }
-  
-    useEffect(() => {
-      window.addEventListener('resize', handleResize)
-  
-      return () => window.removeEventListener('resize', handleResize)
-    }, [size])
-  
-    return size;
-}
 const Pagination = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let portionSize = 5;
@@ -26,6 +12,9 @@ const Pagination = (props) => {
         portionSize = 10;
     }
     else{portionSize = 5;}
+    if (useWindowSize()[0] < 300){
+        portionSize = 3;
+    }
     
 
     let pages = [];
@@ -58,4 +47,4 @@ const Pagination = (props) => {
         </Style.Pagination>
     )
 }
-export default Pagination;
+export default Pagination; 

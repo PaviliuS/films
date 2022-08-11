@@ -9,13 +9,13 @@ import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../theme/theme';
 
 const App = () => {
-    const [theme, setTheme] = useState("light");
+    const [theme, setTheme] = useState("light"); 
 
     const switchTheme = () => {
         theme === "light" ? setTheme("dark") : setTheme("light");
-    };
-
-    return (
+    }; 
+ 
+    return ( 
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
             <GlobalStyle ></GlobalStyle>
             <Style.App >

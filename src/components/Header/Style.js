@@ -60,6 +60,7 @@ export const Img = styled.img`
     display: flex;
     height: 30px;
 `;
+
 export const Name = styled.span`
     display: flex;
     align-items: center;
